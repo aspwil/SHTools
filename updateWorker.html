@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <style>
+   table, tr, th {
+     border-collapse: collapse;
+     border: 1px solid;
+   }
+  </style>
+  <body>
+    <h1 id="header">UPDATE WORKERS:</h1>
+    This tool lets you set bot info with the <a href="https://stablehorde.net/api/" target="_blank">V2 stable horde API.</a> 
+    <br>
+    For info (including ids) on all currently active bots see <a href="https://stablehorde.net/api/v2/workers" target="_blank">here</a> 
+    <br><br>
+    API KEY:<input type="password" size="40" id="key"/>
+    <br><br>
+    WORKER ID:<input type="text" size="40" id="workid"/>
+    <br><br>
+    <table>
+      <tr>
+       <th>Update Info:<input type="checkbox" id="updateInfo" checked></th>
+       <th>Update Maintenance:<input type="checkbox" id="updateMaintenance"></th>
+       <th>Update Paused (admin only):<input type="checkbox" id="updatePaused"></th>
+      </tr>
+      <tr>
+       <th>-</th>
+       <th>Is Under Maintenance:<input type="checkbox" id="isMaintenance"></th>
+       <th>Is Paused:<input type="checkbox" id="isPaused"></th>
+      </tr>
+    </table>
+    <br>
+    WORKER INFO:<br><textarea id="info" rows="4" cols="50"></textarea>
+    <br><br>
+    <button onclick="setData()">SET BOT INFO</button>
+    <br><br>
+    SERVER RESPONCE INFO:<br><textarea id="message" rows="20" cols="50"></textarea>
+    <script>
+      //this function is called when the button is pressed, and makes a request to the server to update the worker
+      function setData(){
+        //get the data from the text boxes
+        var key = document.getElementById("key").value;
+        var id = document.getElementById("workid").value;
+        var info = document.getElementById("info").value;
+        
+        //get checkbox info
+        var updateInfo = document.getElementById('updateInfo').checked;
+        var updateMaintenance = document.getElementById('updateMaintenance').checked;
+        var updatePaused = document.getElementById('updatePaused').checked;
+        var isMaintenance = document.getElementById('isMaintenance').checked;
+        var isPaused = document.getElementById('isPaused').checked;
+        
+        //build the body
+        var requestBody = {};
+        if(updateInfo){
+          requestBody.info = info;
+        }
+        if(updateMaintenance){
+          requestBody.maintenance = isMaintenance;
+        }
+        if(updatePaused){
+          requestBody.paused = isPaused;
+        }
+        
+        //build the put request
+        var request = {
+          method: 'PUT',
+          headers: {
+            'content-type': 'application/json',
+            'apikey': key
+          },
+          body: JSON.stringify(requestBody),  
+        };
+        
+        //make a PUT call to update the bot
+        fetch('https://stablehorde.net/api/v2/workers/'+id, request)
+        //turn the response object into json
+        .then((response) => response.json())
+        //display the response from the server to the user
+        .then((data) => {setUserMessage(JSON.stringify(data, undefined, 2));})
+        //if there's an error trying connect to the server, show it to user
+        .catch((error) => {setUserMessage("AN ERROR OCCURED WHILE TRYING TO CONTACT THE SERVER:\n"+err);});
+      }
+      
+      //this function displays text to the user.
+      function setUserMessage(text) {
+        document.getElementById("message").value = text;
+      }
+    </script>
+  </body>
+</html>
