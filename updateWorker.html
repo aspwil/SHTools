@@ -82,7 +82,7 @@
         //display the response from the server to the user
         .then((data) => {setUserMessage(JSON.stringify(data, undefined, 2));})
         //if there's an error trying connect to the server, show it to user
-        .catch((error) => {setUserMessage("AN ERROR OCCURED WHILE TRYING TO CONTACT THE SERVER:\n"+err);});
+        .catch((error) => {setUserMessage("AN ERROR OCCURED WHILE TRYING TO CONTACT THE SERVER:\n"+error);});
       }
       
       //this function displays text to the user.
