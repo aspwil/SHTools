@@ -1,0 +1,44 @@
+[
+{
+    "name": "Ethereal Ruins/Temple",
+    "author": "aspwil#234",
+    "desc": "Generates drawn often empty landscapes with lone buildings, often creepy (recommended k_euler_a sampler)",
+    "prompt": "illustration, Ethereal plane of existence, Lovecraft, atmosphere, dread, organic, demon souls, ruins, place between realities, existence, dark fantasy, trippy, void, deep, horror, city, abandoned, mass structure, skyscraper, decay, eldritch, green, gray, shadow, dim, cosmic, spirals, desolate, fractal ### text, word, grainy, blurry, fuzzy, red, blue"
+},
+{
+    "name": "Snowy fantasy forest",
+    "author": "aspwil#234",
+    "desc": "Generates detailed drawn snowy fantasy forests (recommended k_euler_a sampler)",
+    "prompt": "magical crystal forest, fantasy, high detail, illustration, bright lighting, gray, black, white, blue, glow, nature ### haze, fog, text, watermark, bloom, fuzz, blur, grainy"
+},
+{
+    "name": "Magical Gemstones",
+    "author": "aspwil#234",
+    "desc": "Generates large realistic 3d magical fantasy gemstones (recommended k_euler_a sampler)",
+    "prompt": "giant magical gemstone:3.0, crystal:1.5, magical, colorful, fantasy ore, high detail, illustration,  bright lighting, glow:1.5, wide focus, rough, raw, gem:2.0, octane render, valuables, 3d, galaxy, pretty, reflection, smooth, glass, mana ### haze, fog, text, watermark, bloom, fuzz, blur"
+},
+{
+    "name": "Twisting space landscape",
+    "author": "aspwil#234",
+    "desc": "Generates weird and twisted landscapes, often with strange and starry skies (recommended k_euler_a sampler)",
+    "prompt": "glowing rift, space, gemstones, high contrast, neon, glowing, black opal, HD, realistic, Marc Simonetti, Greg Rutkowski, lava, cliff, grass, detail, sharpening, clear, cosmic, stars, spiral, roots, galaxy, colorful, bright, landscape, mountain, rock, trippy, spirals, eldritch, Cthulhu ### fog, blur, text, watermark, grainy, blurry, foggy, blade, transparent"
+},
+{
+    "name": "Demon crowd",
+    "author": "aspwil#234",
+    "desc": "This one attempts to generate empty planes full of shadowy figures (recommended k_euler_a sampler, and 1024x) this one can get a little disturbing, use with care",
+    "prompt": "crawling, face, hell, eldritch, horror, demon, creepy, many people, multiple limbs, deformed, landscape, melding together, mass population, crowded, crowd, skin, flesh, gray, red, dark ### text, card, words"
+},
+{
+    "name": "Fantasy tree monster",
+    "author": "aspwil#234",
+    "desc": "This can generate tree monsters (recommended k_euler_a sampler)",
+    "prompt": "fantasy, high detail, illustration, bright lighting, gray, black, white, glow, nature, sprites, stars, apparition, crawling, hell, eldritch, horror, demon, creepy, multiple limbs, deformed, landscape, melding together, crystal, forest, roots, terror ### haze, fog, text, watermark, bloom, fuzz, blur, grainy, card, words, face"
+},
+{
+    "name": "Old gods",
+    "author": "aspwil#234",
+    "desc": "This can generate strange multi-colored, warped entities (recommended k_euler_a sampler)",
+    "prompt": "fantasy, high detail, illustration, bright lighting, grey, black, white, blue, red, green, yellow, purple, glow, nature, sprites, stars, apparition, rainbow, crawling, hell, eldritch, horror, demon, creepy, many people, multiple limbs, deformed, landscape, melding together, crystal, forest ### haze, fog, text, watermark, bloom, fuzz, blur, grainy, card, words"
+}
+]
