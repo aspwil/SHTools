@@ -32,6 +32,8 @@
     HEIGHT: <input type="text" size="5" id="height" value="512"/>
     STEPS: <input type="text" size="5" id="steps" value="25"/>
     <br>
+    CFG-SCALE: <input type="text" size="5" id="cfg_scale" value="5"/>
+    <br>
     SAMPLER:<br>
     <form name="samplerForm">
     <table>
@@ -66,6 +68,7 @@
         var height = Number(document.getElementById("height").value);
         var width = Number(document.getElementById("width").value);
         var steps = Number(document.getElementById("steps").value);
+        var cfg = Number(document.getElementById("cfg_scale").value);
         
         //get data from checkboxes
         var doAnon = document.getElementById("doAnon").checked;
@@ -93,7 +96,7 @@
               ],
               "ddim_eta": 0,
               "batch_size": 1,
-              "cfg_scale": 5,
+              "cfg_scale": cfg,
               "height": height,
               "width": width,
               "steps": steps
