@@ -24,10 +24,10 @@
     "prompt": "glowing rift, space, gemstones, high contrast, neon, glowing, black opal, HD, realistic, Marc Simonetti, Greg Rutkowski, lava, cliff, grass, detail, sharpening, clear, cosmic, stars, spiral, roots, galaxy, colorful, bright, landscape, mountain, rock, trippy, spirals, eldritch, Cthulhu ### fog, blur, text, watermark, grainy, blurry, foggy, blade, transparent"
 },
 {
-    "name": "Demon crowd",
+    "name": "Demon flesh crowd",
     "author": "aspwil#234",
-    "desc": "This one attempts to generate empty planes full of shadowy figures (recommended k_euler_a sampler, and 1024x) this one can get a little disturbing, use with care",
-    "prompt": "crawling, face, hell, eldritch, horror, demon, creepy, many people, multiple limbs, deformed, landscape, melding together, mass population, crowded, crowd, skin, flesh, gray, red, dark ### text, card, words"
+    "desc": "This one attempts to generate empty planes full of flesh demons (recommended k_euler_a sampler, and 1024x) this can generate blood and body horror, use with caution",
+    "prompt": "crawling, face, hell, eldritch, horror, demon, creepy, many people, multiple limbs, deformed, landscape, melding together, mass population, crowded, crowd, skin, flesh, gray, red, dark, shadow, roots, horizon, wide shot ### text, card, words"
 },
 {
     "name": "Fantasy tree monster",
