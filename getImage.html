@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
+  <style>
+      table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      }
+  </style>
   <body>
     <h1 id="header">IMAGE REQUESTER:</h1>
     This tool lets you request an image from <a href="https://stablehorde.net/api/" target="_blank">V2 stable horde API.</a> 
@@ -18,11 +24,31 @@
     API KEY:<input type="password" size="40" id="key"/>
     <br>ANON:<input type="checkbox" id="doAnon"> (will override key)
     <br><br>
+    
+    
     PROMPT:<br><textarea id="prompt" rows="5" cols="50" value="a blue pigeon with a top hat"></textarea>
     <br><br>
     WIDTH:<input type="text" size="5" id="width" value="512"/>
     HEIGHT: <input type="text" size="5" id="height" value="512"/>
     STEPS: <input type="text" size="5" id="steps" value="25"/>
+    <br>
+    SAMPLER:<br>
+    <form name="samplerForm">
+    <table>
+      <tr>
+        <th>k_euler<input type="radio" id="k_euler" name="sampler" value="k_euler" checked></th>
+        <th>k_lms<input type="radio" id="k_lms" name="sampler" value="k_lms"></th>
+        <th>k_euler_a<input type="radio" id="k_euler_a" name="sampler" value="k_euler_a"></th>
+        <th>k_dpm_2<input type="radio" id="k_dpm_2" name="sampler" value="k_dpm_2"></th>
+      </tr>
+      <tr>
+        <th>k_dpm_2_a<input type="radio" id="k_dpm_2_a" name="sampler" value="k_dpm_2_a"></th>
+        <th>k_heun<input type="radio" id="k_heun" name="sampler" value="k_heun"></th>
+        <th>PLMS<input type="radio" id="PLMS" name="sampler" value="PLMS"></th>
+        <th>DDIM<input type="radio" id="DDIM" name="sampler" value="DDIM"></th>
+      </tr>
+    </table>
+    </form>
     <br><br>
     <button onclick="sendCall()">SEND API CALL</button>
     <br><br>
@@ -44,6 +70,8 @@
         //get data from checkboxes
         var doAnon = document.getElementById("doAnon").checked;
         
+        var sampler = document.forms.samplerForm.sampler.value;
+        
         if(doAnon){
           key = '0000000000';
         }
@@ -58,7 +86,7 @@
           body: JSON.stringify({
             "prompt": prompt,
             "params": {
-              "sampler_name": "k_lms",
+              "sampler_name": sampler,
               "toggles": [
                 1,
                 4
@@ -76,7 +104,7 @@
         requestNumber++;
         document.getElementById("request number").innerHTML = requestNumber;
         
-        //make a PUT call to update the bot
+        //make a api call 
         fetch('https://stablehorde.net/api/v2/generate/sync', request)
         //turn the response object into json
         .then((response) => response.json())
