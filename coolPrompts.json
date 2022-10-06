@@ -15,7 +15,7 @@
     "name": "Magical Gemstones",
     "author": "aspwil#234",
     "desc": "Generates large realistic 3d magical fantasy gemstones (recommended k_euler_a sampler)",
-    "prompt": "giant magical gemstone:3.0, crystal:1.5, magical, colorful, fantasy ore, high detail, illustration,  bright lighting:1.0, glow:1.5, wide focus, rough, raw:1.0, gem:2.0, octane render, valuables, 3d, galaxy, pretty, reflection, smooth, glass, mana ### haze, fog, text, watermark, bloom, fuzz, blur"
+    "prompt": "giant magical gemstone, crystal, magical, colorful, fantasy ore, high detail, illustration, bright lighting, glow, wide focus, rough, raw, gem, octane render, valuables, 3d, galaxy, pretty, reflection, smooth, glass, mana ### haze, fog, text, watermark, bloom, fuzz, blur"
 },
 {
     "name": "Twisting space landscape",
@@ -44,7 +44,7 @@
 {
     "name": "Large flesh teeth monsters",
     "author": "Anon",
-    "desc": "this generate huge monstrosities, often with lots of teeth",
+    "desc": "This generates huge monstrosities, often with lots of teeth",
     "prompt": "Huge mimic chest, big teeth, tentacles, mucus, blood, by greg rutkowski, by rinotuna, by sakimichan, centered, wide shot, 4k, HQ, vibrant colors, shrouded in darkness"
 }
 ]
