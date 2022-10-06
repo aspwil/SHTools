@@ -40,5 +40,11 @@
     "author": "aspwil#234",
     "desc": "This can generate strange multi-colored, warped entities (recommended k_euler_a sampler)",
     "prompt": "fantasy, high detail, illustration, bright lighting, grey, black, white, blue, red, green, yellow, purple, glow, nature, sprites, stars, apparition, rainbow, crawling, hell, eldritch, horror, demon, creepy, many people, multiple limbs, deformed, landscape, melding together, crystal, forest ### haze, fog, text, watermark, bloom, fuzz, blur, grainy, card, words"
+},
+{
+    "name": "Large flesh teeth monsters",
+    "author": "Anon",
+    "desc": "this generate huge monstrosities, often with lots of teeth",
+    "prompt": "Huge mimic chest, big teeth, tentacles, mucus, blood, by greg rutkowski, by rinotuna, by sakimichan, centered, wide shot, 4k, HQ, vibrant colors, shrouded in darkness"
 }
 ]
