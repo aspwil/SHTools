@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <h1 id="header">IMAGE REQUESTER:</h1>
+    This tool lets you request an image from <a href="https://stablehorde.net/api/" target="_blank">V2 stable horde API.</a> 
+    <br>
+    This uses synced message so you can only request one at a time.
+    <br>
+    Add a prompt, make the sizes each a multiple of 64 (or you will get an error)
+    <br>
+    Press send api call, wait for a response with image data. then press download.
+    <br>
+    <br><br>
+    API KEY:<input type="password" size="40" id="key"/>
+    <br>ANON:<input type="checkbox" id="doAnon"> (will override key)
+    <br><br>
+    PROMPT:<br><textarea id="prompt" rows="5" cols="50" value="a blue pigeon with a top hat"></textarea>
+    <br><br>
+    WIDTH:<input type="text" size="5" id="width" value="512"/>
+    HEIGHT: <input type="text" size="5" id="height" value="512"/>
+    STEPS: <input type="text" size="5" id="steps" value="25"/>
+    <br><br>
+    <button onclick="sendCall()">SEND API CALL</button>
+    <br><br>
+    RESPONSE:<span id="request number">0</span><br><textarea id="response" rows="5" cols="50"></textarea>
+    <br><br>
+    <button onclick="saveFile()">DOWNLOAD FILE</button>
+    <script>
+      var requestNumber=0;
+      //this function is called when the button is pressed, and makes a request to the server to update the worker
+      function sendCall(){
+        setResponceMessage("sending call...")
+        //get the data from the text boxes
+        var key = document.getElementById("key").value;
+        var prompt = document.getElementById("prompt").value;
+        var height = Number(document.getElementById("height").value);
+        var width = Number(document.getElementById("width").value);
+        var steps = Number(document.getElementById("steps").value);
+        
+        //get data from checkboxes
+        var doAnon = document.getElementById("doAnon").checked;
+        
+        if(doAnon){
+          key = '0000000000';
+        }
+        
+        //build the put request
+        var request = {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'apikey': key
+          },
+          body: JSON.stringify({
+            "prompt": prompt,
+            "params": {
+              "sampler_name": "k_lms",
+              "toggles": [
+                1,
+                4
+              ],
+              "ddim_eta": 0,
+              "batch_size": 1,
+              "cfg_scale": 5,
+              "height": height,
+              "width": width,
+              "steps": steps
+            }
+          })
+        };
+        
+        requestNumber++;
+        document.getElementById("request number").innerHTML = requestNumber;
+        
+        //make a PUT call to update the bot
+        fetch('https://stablehorde.net/api/v2/generate/sync', request)
+        //turn the response object into json
+        .then((response) => response.json())
+        //display the response from the server to the user
+        .then((data) => {setResponceMessage(JSON.stringify(data, undefined, 2));})
+        //if there's an error trying connect to the server, show it to user
+        .catch((error) => {setResponceMessage("AN ERROR OCCURED WHILE TRYING TO CONTACT THE SERVER:\n"+error);});
+      }
+      
+      function saveFile(){
+        let base64String = JSON.parse(document.getElementById("response").value)['generations'][0]['img'];
+        let downloadLink = document.createElement("a");
+        downloadLink.href = `data:image/webp;base64,${base64String}`;
+        downloadLink.download = Date.now()+'.webp'
+        downloadLink.click();
+      }
+      
+      //this function displays text to the user.
+      function setResponceMessage(text) {
+        document.getElementById("response").value = text;
+      }
+    </script>
+  </body>
+</html>
