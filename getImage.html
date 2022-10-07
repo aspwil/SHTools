@@ -118,10 +118,11 @@
           if('generations' in data){
             imageData = data['generations'][0]['img'];
             setImage();
+            if(autoDownload){
+              saveFile();
+            }
           }
-          if(autoDownload){
-            saveFile();
-          }
+          
         })
         //if there's an error trying connect to the server, show it to user
         .catch((error) => {setResponceMessage("AN ERROR OCCURED WHILE TRYING TO CONTACT THE SERVER:\n"+error);});
