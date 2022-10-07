@@ -54,7 +54,7 @@
     <br><br>
     RESPONSE:<span id="request number">0</span><br><textarea id="response" rows="5" cols="50"></textarea>
     <br><br>
-    <button onclick="saveFile()">DOWNLOAD FILE</button>
+    <button onclick="saveFile()">DOWNLOAD FILE</button> AUTO DOWNLOAD:<input type="checkbox" id="doAutoDownload">
     <br>
     <img id="image" width="512" height="512" src="" alt="generated image" />
     <script>
@@ -74,6 +74,7 @@
         
         //get data from checkboxes
         var doAnon = document.getElementById("doAnon").checked;
+        var autoDownload = document.getElementById("doAutoDownload").checked;
         var sampler = document.forms.samplerForm.sampler.value;
         
         if(doAnon){
@@ -95,8 +96,6 @@
                 1,
                 4
               ],
-              "ddim_eta": 0,
-              "batch_size": 1,
               "cfg_scale": cfg,
               "height": height,
               "width": width,
@@ -113,14 +112,23 @@
         //turn the response object into json
         .then((response) => response.json())
         //display the response from the server to the user
-        .then((data) => {setResponceMessage(JSON.stringify(data, undefined, 2)); if('generations' in data){imageData = data['generations'][0]['img']; setImage()}})
+        .then((data) => {
+          setResponceMessage(JSON.stringify(data, undefined, 2));
+          if('generations' in data){
+            imageData = data['generations'][0]['img'];
+            setImage();
+          }
+          if(autoDownload){
+            saveFile();
+          }
+        })
         //if there's an error trying connect to the server, show it to user
         .catch((error) => {setResponceMessage("AN ERROR OCCURED WHILE TRYING TO CONTACT THE SERVER:\n"+error);});
       }
       
       function saveFile(){
         downloadLink.href = `data:image/webp;base64,${imageData}`;
-        downloadLink.download = Date.now()+'.webp'
+        downloadLink.download = Date.now()+'.webp';
         downloadLink.click();
       }
       
