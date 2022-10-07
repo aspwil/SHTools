@@ -24,8 +24,6 @@
     API KEY:<input type="password" size="40" id="key"/>
     <br>ANON:<input type="checkbox" id="doAnon"> (will override key)
     <br><br>
-    
-    
     PROMPT:<br><textarea id="prompt" rows="5" cols="50" value="a blue pigeon with a top hat"></textarea>
     <br><br>
     WIDTH:<input type="text" size="5" id="width" value="512"/>
@@ -72,7 +70,6 @@
         
         //get data from checkboxes
         var doAnon = document.getElementById("doAnon").checked;
-        
         var sampler = document.forms.samplerForm.sampler.value;
         
         if(doAnon){
