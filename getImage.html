@@ -55,8 +55,12 @@
     RESPONSE:<span id="request number">0</span><br><textarea id="response" rows="5" cols="50"></textarea>
     <br><br>
     <button onclick="saveFile()">DOWNLOAD FILE</button>
+    <br>
+    <img id="image" width="512" height="512" src="" alt="generated image" />
     <script>
       var requestNumber=0;
+      var imageData = null;
+      var downloadLink = document.createElement("a");
       //this function is called when the button is pressed, and makes a request to the server to update the worker
       function sendCall(){
         setResponceMessage("call sent...\nawaiting response...\ndo not refresh page")
@@ -109,17 +113,19 @@
         //turn the response object into json
         .then((response) => response.json())
         //display the response from the server to the user
-        .then((data) => {setResponceMessage(JSON.stringify(data, undefined, 2));})
+        .then((data) => {setResponceMessage(JSON.stringify(data, undefined, 2)); if('generations' in data){imageData = data['generations'][0]['img']; setImage()}})
         //if there's an error trying connect to the server, show it to user
         .catch((error) => {setResponceMessage("AN ERROR OCCURED WHILE TRYING TO CONTACT THE SERVER:\n"+error);});
       }
       
       function saveFile(){
-        let base64String = JSON.parse(document.getElementById("response").value)['generations'][0]['img'];
-        let downloadLink = document.createElement("a");
-        downloadLink.href = `data:image/webp;base64,${base64String}`;
+        downloadLink.href = `data:image/webp;base64,${imageData}`;
         downloadLink.download = Date.now()+'.webp'
         downloadLink.click();
+      }
+      
+      function setImage(){
+        document.getElementById('image').src = `data:image/webp;base64,${imageData}`;
       }
       
       //this function displays text to the user.
