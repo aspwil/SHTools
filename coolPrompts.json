@@ -46,5 +46,11 @@
     "author": "Anon",
     "desc": "This generates huge monstrosities, often with lots of teeth",
     "prompt": "Huge mimic chest, big teeth, tentacles, mucus, blood, by greg rutkowski, by rinotuna, by sakimichan, centered, wide shot, 4k, HQ, vibrant colors, shrouded in darkness"
+},
+{
+    "name": "Detailed Vivid Artstyle",
+    "author": "Buttah#1076",
+    "desc": "Generates highly detailed illistrated artistic works, reaplce <TAG> with what ever you want the image to be of",
+    "prompt": "<TAG>, dantes hell by ayami kojima, amano, karol bak, greg hildebrandt, and mark brooks, rich deep colors. beksinski painting, art by takato yamamoto. masterpiece. ultra realistic, smooth shading, ultra detailed, high resolution, cinematic"
 }
 ]
