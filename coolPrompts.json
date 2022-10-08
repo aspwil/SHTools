@@ -50,7 +50,7 @@
 {
     "name": "Detailed Vivid Artstyle",
     "author": "Buttah#1076",
-    "desc": "Generates highly detailed illistrated artistic works, reaplce <TAG> with what ever you want the image to be of",
-    "prompt": "<TAG>, dantes hell by ayami kojima, amano, karol bak, greg hildebrandt, and mark brooks, rich deep colors. beksinski painting, art by takato yamamoto. masterpiece. ultra realistic, smooth shading, ultra detailed, high resolution, cinematic"
+    "desc": "Generates highly detailed illistrated artistic works, replace [TAG] with what ever you want the image to be of",
+    "prompt": "[TAG], dantes hell by ayami kojima, amano, karol bak, greg hildebrandt, and mark brooks, rich deep colors. beksinski painting, art by takato yamamoto. masterpiece. ultra realistic, smooth shading, ultra detailed, high resolution, cinematic"
 }
 ]
