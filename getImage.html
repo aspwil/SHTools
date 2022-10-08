@@ -32,6 +32,7 @@
     STEPS: <input type="text" size="5" id="steps" value="25"/>
     <br>
     CFG-SCALE: <input type="text" size="5" id="cfg_scale" value="5"/>
+    SEED: <input type="text" size="20" id="seed" value=""/>
     <br>
     SAMPLER:<br>
     <form name="samplerForm">
@@ -72,6 +73,7 @@
         var width = Number(document.getElementById("width").value);
         var steps = Number(document.getElementById("steps").value);
         var cfg = Number(document.getElementById("cfg_scale").value);
+        var seed = document.getElementById("seed").value;
         
         //get data from checkboxes
         var doAnon = document.getElementById("doAnon").checked;
@@ -100,7 +102,9 @@
               "cfg_scale": cfg,
               "height": height,
               "width": width,
-              "steps": steps
+              "steps": steps,
+              "seed": seed
+              
             }
           })
         };
