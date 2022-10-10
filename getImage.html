@@ -51,6 +51,8 @@
       </tr>
     </table>
     </form>
+    <br>
+    <br>ONLY USE TRUSTED WORKERS:<input type="checkbox" id="doTrusted" checked> (this makes it so you only use trusted workers, untrusted may be more and faster, but may have bots or bad actors not serving real generations)
     <br><br>
     <button onclick="sendCall()">SEND API CALL</button>
     <br><br>
@@ -67,7 +69,6 @@
       function sendCall(){
         setResponceMessage("call sent...\nawaiting response...\ndo not refresh page")
         //get the data from the text boxes
-        var key = document.getElementById("key").value;
         var prompt = document.getElementById("prompt").value;
         var height = Number(document.getElementById("height").value);
         var width = Number(document.getElementById("width").value);
@@ -79,9 +80,14 @@
         var doAnon = document.getElementById("doAnon").checked;
         var autoDownload = document.getElementById("doAutoDownload").checked;
         var sampler = document.forms.samplerForm.sampler.value;
+        var doTrusted = documnet.getElementById("doTrusted").checked;
         
-        if(doAnon){
-          key = '0000000000';
+        //set default key
+        var key = '0000000000';
+        
+        //if were not using anon key take the new key
+        if(!doAnon){
+          key = document.getElementById("key").value;
         }
         
         //build the put request
@@ -93,6 +99,7 @@
           },
           body: JSON.stringify({
             "prompt": prompt,
+            "trusted": doTrusted,
             "params": {
               "sampler_name": sampler,
               "toggles": [
@@ -104,7 +111,6 @@
               "width": width,
               "steps": steps,
               "seed": seed
-              
             }
           })
         };
