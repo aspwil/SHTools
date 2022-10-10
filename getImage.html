@@ -50,9 +50,16 @@
         <th>DDIM<input type="radio" id="DDIM" name="sampler" value="DDIM"></th>
       </tr>
     </table>
-    </form>
     <br>
-    <br>ONLY USE TRUSTED WORKERS:<input type="checkbox" id="doTrusted" checked><br>
+    </form>
+    ONLY USE NSFW WORKERS:<input type="checkbox" id="doNsfw"><br>
+    this will make you NOT use any workers that will censor NSFW images.<br>
+    <br>
+    CENSOR NSFW:<input type="checkbox" id="doCensor"><br>
+    this will censor (turn black) any NSFW images that are generated<br>
+    this is not 100% accurate, as most image based censors are not<br>
+    <br>
+    ONLY USE TRUSTED WORKERS:<input type="checkbox" id="doTrusted" checked><br>
     (this makes it so you only use trusted workers, un-trusted may be faster,<br>
     but may have bots or bad actors not serving real generations)
     <br><br>
@@ -83,6 +90,8 @@
         var autoDownload = document.getElementById("doAutoDownload").checked;
         var sampler = document.forms.samplerForm.sampler.value;
         var doTrusted = documnet.getElementById("doTrusted").checked;
+        var doNsfw = document.getElementById("doNsfw").checked;
+        var doCensor = document.getElementById("doCensor").checked;
         
         //set default key
         var key = '0000000000';
@@ -101,7 +110,9 @@
           },
           body: JSON.stringify({
             "prompt": prompt,
-            "trusted": doTrusted,
+            "trusted_workers": doTrusted,
+            "nsfw": doNsfw,
+            "censor_nsfw": doCensor,
             "params": {
               "sampler_name": sampler,
               "toggles": [
