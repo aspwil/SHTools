@@ -69,4 +69,11 @@
     "desc": "Generates crystal fantasy landscapes, replace [LANDSCAPE] with forest, desert, etc",
     "prompt": "magical crystal [LANDSCAPE] landscape, fantasy, high detail, photorealistic, bright lighting, glow, spirals, gray, black, white, blue, yellow, red, purple, green, trippy, rainbow, colorful, shiny, smooth, sprites, stars"
 }
+{
+    "name": "Broken Anime Cybernetic girl",
+    "author": "SymphogearCgOrangeHaloCatScarfTracksuitTigerTail#1746",
+    "model": "Anything Diffusion V4",
+    "desc": "generates images of broken down anime cybernetic androids, often decaying looking.",
+    "prompt": "(zombie mannequin robot, marble statue), close up, cute, paws mittens, decayed, broken, cracked, rotting, cybernetic, thigh highs, thigh gap, tail, halo, scarf, fluffy fur, sparkly, fangs, streaked hair, hair clip, tail, CG, shadows, intense, masterpiece, outdoors, veil, sparkly, tattoos ### lipstick, pink, purple, censorship, large breasts, old, ugly, thick, fat, lowres, low quality, jpeg artifacts, blurry, chubby, worst quality, monochrome, human, skin, nipples, breasts"
+}
 ]
