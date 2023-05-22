@@ -68,7 +68,7 @@
     "model": "Dungeons and diffusion",
     "desc": "Generates crystal fantasy landscapes, replace [LANDSCAPE] with forest, desert, etc",
     "prompt": "magical crystal [LANDSCAPE] landscape, fantasy, high detail, photorealistic, bright lighting, glow, spirals, gray, black, white, blue, yellow, red, purple, green, trippy, rainbow, colorful, shiny, smooth, sprites, stars"
-}
+},
 {
     "name": "Broken Anime Cybernetic girl",
     "author": "SymphogearCgOrangeHaloCatScarfTracksuitTigerTail#1746",
